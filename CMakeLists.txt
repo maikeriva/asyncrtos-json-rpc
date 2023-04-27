@@ -1,0 +1,11 @@
+idf_component_register(
+    SRC_DIRS
+        "src"
+    INCLUDE_DIRS
+        "include"
+    REQUIRES
+        "freertos"
+        "asyncrtos"
+        "json"
+        "esp_timer"
+)

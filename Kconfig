@@ -1,0 +1,138 @@
+menu "AOS JSON-RPC"
+
+    menu "Client"
+
+        choice AOS_JRPC_CLIENT_LOG
+            bool "Default log verbosity"
+            default AOS_JRPC_CLIENT_LOG_INFO
+            help
+                Specify how much output to see in logs by default.
+                You can set lower verbosity level at runtime using
+                esp_log_level_set function.
+
+                Note that this setting limits which log statements
+                are compiled into the program. So setting this to, say,
+                "Warning" would mean that changing log level to "Debug"
+                at runtime will not be possible.
+
+            config AOS_JRPC_CLIENT_LOG_NONE
+                bool "No output"
+            config AOS_JRPC_CLIENT_LOG_ERROR
+                bool "Error"
+            config AOS_JRPC_CLIENT_LOG_WARNING
+                bool "Warning"
+            config AOS_JRPC_CLIENT_LOG_INFO
+                bool "Info"
+            config AOS_JRPC_CLIENT_LOG_DEBUG
+                bool "Debug"
+            config AOS_JRPC_CLIENT_LOG_VERBOSE
+                bool "Verbose"
+        endchoice
+
+        config AOS_JRPC_CLIENT_MAXREQUESTS
+            int "Maximum concurrent requests"
+            default 10
+            help
+                Number of maximum concurrent requests
+
+        config AOS_JRPC_CLIENT_MAXINPUTLEN
+            int "Maximum input length"
+            default 512
+            help
+                Maximum acceptable input length for responses
+
+    endmenu
+
+    menu "Server"
+
+        choice AOS_JRPC_SERVER_LOG
+            bool "Default log verbosity"
+            default AOS_JRPC_SERVER_LOG_INFO
+            help
+                Specify how much output to see in logs by default.
+                You can set lower verbosity level at runtime using
+                esp_log_level_set function.
+
+                Note that this setting limits which log statements
+                are compiled into the program. So setting this to, say,
+                "Warning" would mean that changing log level to "Debug"
+                at runtime will not be possible.
+
+            config AOS_JRPC_SERVER_LOG_NONE
+                bool "No output"
+            config AOS_JRPC_SERVER_LOG_ERROR
+                bool "Error"
+            config AOS_JRPC_SERVER_LOG_WARNING
+                bool "Warning"
+            config AOS_JRPC_SERVER_LOG_INFO
+                bool "Info"
+            config AOS_JRPC_SERVER_LOG_DEBUG
+                bool "Debug"
+            config AOS_JRPC_SERVER_LOG_VERBOSE
+                bool "Verbose"
+        endchoice
+
+        config AOS_JRPC_SERVER_MAXREQUESTS
+            int "Max concurrent requests"
+            default 10
+            help
+                Number of maximum concurrent requests
+
+        config AOS_JRPC_SERVER_MAXINPUTLEN
+            int "Maximum input length"
+            default 512
+            help
+                Maximum acceptable input length for requests and notifications
+
+    endmenu
+
+    menu "Peer"
+
+        choice AOS_JRPC_PEER_LOG
+            bool "Default log verbosity"
+            default AOS_JRPC_PEER_LOG_INFO
+            help
+                Specify how much output to see in logs by default.
+                You can set lower verbosity level at runtime using
+                esp_log_level_set function.
+
+                Note that this setting limits which log statements
+                are compiled into the program. So setting this to, say,
+                "Warning" would mean that changing log level to "Debug"
+                at runtime will not be possible.
+
+            config AOS_JRPC_PEER_LOG_NONE
+                bool "No output"
+            config AOS_JRPC_PEER_LOG_ERROR
+                bool "Error"
+            config AOS_JRPC_PEER_LOG_WARNING
+                bool "Warning"
+            config AOS_JRPC_PEER_LOG_INFO
+                bool "Info"
+            config AOS_JRPC_PEER_LOG_DEBUG
+                bool "Debug"
+            config AOS_JRPC_PEER_LOG_VERBOSE
+                bool "Verbose"
+        endchoice
+
+        config AOS_JRPC_PEER_MAXSERVERREQUESTS
+            int "Max concurrent server requests"
+            default 10
+            help
+                Number of maximum concurrent requests for the server
+
+        config AOS_JRPC_PEER_MAXCLIENTREQUESTS
+            int "Max concurrent client requests"
+            default 10
+            help
+                Number of maximum concurrent requests for the client
+
+        config AOS_JRPC_PEER_MAXINPUTLEN
+            int "Maximum input length"
+            default 512
+            help
+                Maximum acceptable input length for requests, responses, and notifications
+
+    endmenu
+
+endmenu
