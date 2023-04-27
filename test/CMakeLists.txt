@@ -1,0 +1,12 @@
+idf_component_register(
+    SRC_DIRS
+        "."
+        "src"
+    INCLUDE_DIRS
+        "priv_include"
+    REQUIRES
+        "unity"
+        "asyncrtos"
+        "asyncrtos-json-rpc"
+        "json"
+)
